@@ -13,19 +13,29 @@ This project uses [geerlingguy/ansible-role-pip](https://github.com/geerlingguy/
 
 ## Usage
 
-TODO improve usage section
+To use this Vagrant box you can take inspiration from [the `test` folder of dmotte/vagrant-dockerbox](https://github.com/dmotte/vagrant-dockerbox/tree/main/test).
+
+If you want your host **SSH identity keys** and **known_hosts** to be available inside the VM, you can mount the host's `~/.ssh` directory like this:
 
 ```ruby
 config.vm.synced_folder "~/.ssh", "/home/vagrant/.ssh-host",
     mount_options: ["dmode=700,fmode=600"]
+```
 
-config.vm.provision "shell", inline: <<-SHELL
-    apt-get install -y rsync
-SHELL
+Then you'll need to add some directives to the `~/.ssh/config` file inside the VM:
 
+```ruby
 config.vm.provision "shell", privileged: false, inline: <<-SHELL
     touch ~/.ssh/config && chmod 600 ~/.ssh/config
     echo "UserKnownHostsFile ~/.ssh-host/known_hosts" >> ~/.ssh/config
     echo -e "Host *\n    IdentityFile ~/.ssh-host/id_ed25519" >> ~/.ssh/config
+SHELL
+```
+
+If you want to install additional packages:
+
+```ruby
+config.vm.provision "shell", inline: <<-SHELL
+    apt-get update && apt-get install -y rsync
 SHELL
 ```
