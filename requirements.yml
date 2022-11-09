@@ -1,2 +1,4 @@
 ---
-- geerlingguy.pip
+roles:
+  - name: geerlingguy.pip
+    # version: "2.2.0"
