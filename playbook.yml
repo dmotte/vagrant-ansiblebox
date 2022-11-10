@@ -11,13 +11,13 @@
   tasks:
     - name: Execute apt update if the last one is more than 1 hour ago
       become: yes
-      apt:
+      ansible.builtin.apt:
         update_cache: yes
         cache_valid_time: 3600
       when: ansible_pkg_mgr == "apt"
 
     - name: Install pip and Ansible
-      include_role: { name: geerlingguy.pip }
+      ansible.builtin.include_role: { name: geerlingguy.pip }
       vars:
         ansible_become: yes
         pip_install_packages: [ansible]
