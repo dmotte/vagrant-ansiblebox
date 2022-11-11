@@ -16,6 +16,11 @@
         cache_valid_time: 3600
       when: ansible_pkg_mgr == "apt"
 
+    - name: Ensure Git is installed # needed by Ansible Lint
+      become: yes
+      ansible.builtin.package:
+        name: git
+
     - name: Install pip, Ansible and Ansible Lint
       ansible.builtin.include_role: { name: geerlingguy.pip }
       vars:
