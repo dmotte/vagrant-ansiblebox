@@ -3,11 +3,11 @@
 [![GitHub Workflow Status](https://img.shields.io/github/workflow/status/dmotte/vagrant-ansiblebox/release?logo=github&style=flat-square)](https://github.com/dmotte/vagrant-ansiblebox/actions)
 [![Vagrant Cloud](https://img.shields.io/badge/vagrant-dmotte/ansiblebox-blue?logo=vagrant&style=flat-square)](https://app.vagrantup.com/dmotte/boxes/ansiblebox)
 
-:package: **Debian Vagrant box** with **Ansible** installed via _pip_ with _Python 3_.
+:package: **Debian Vagrant box** with **Ansible** and **Ansible Lint** installed via _pip_ with _Python 3_.
 
 Since Ansible cannot run natively on a _Windows_ host, this Vagrant box can be useful if you need Ansible but you're using Windows on your controller.
 
-This project uses [geerlingguy/ansible-role-pip](https://github.com/geerlingguy/ansible-role-pip) to install _pip_ and _Ansible_ inside the VM.
+This project uses [geerlingguy/ansible-role-pip](https://github.com/geerlingguy/ansible-role-pip) to install _pip_, _Ansible_ and _Ansible Lint_ inside the VM.
 
 > :package: This box is also on **Vagrant Cloud** as [`dmotte/ansiblebox`](https://app.vagrantup.com/dmotte/boxes/ansiblebox).
 
