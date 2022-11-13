@@ -1,6 +1,7 @@
 #!/usr/bin/env ansible-playbook
 ---
-- hosts: all
+- name: Main play
+  hosts: all
 
   pre_tasks:
     - name: Check Ansible version
@@ -10,19 +11,19 @@
 
   tasks:
     - name: Execute apt update if the last one is more than 1 hour ago
-      become: yes
+      become: true
       ansible.builtin.apt:
-        update_cache: yes
+        update_cache: true
         cache_valid_time: 3600
       when: ansible_pkg_mgr == "apt"
 
     - name: Ensure Git is installed # needed by Ansible Lint
-      become: yes
+      become: true
       ansible.builtin.package:
         name: git
 
     - name: Install pip, Ansible and Ansible Lint
       ansible.builtin.include_role: { name: geerlingguy.pip }
       vars:
-        ansible_become: yes
+        ansible_become: true
         pip_install_packages: [ansible, ansible-lint]
