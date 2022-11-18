@@ -17,10 +17,12 @@
         cache_valid_time: 3600
       when: ansible_pkg_mgr == "apt"
 
-    - name: Ensure Git is installed # needed by Ansible Lint
+    - name: Ensure some packages are installed
       become: true
       ansible.builtin.package:
-        name: git
+        name:
+          - git # needed by Ansible Lint
+          - sshpass # Needed by Ansible for password-based SSH login
 
     - name: Install pip, Ansible and Ansible Lint
       ansible.builtin.include_role: { name: geerlingguy.pip }
