@@ -1,6 +1,6 @@
 # vagrant-ansiblebox
 
-[![GitHub Workflow Status](https://img.shields.io/github/workflow/status/dmotte/vagrant-ansiblebox/release?logo=github&style=flat-square)](https://github.com/dmotte/vagrant-ansiblebox/actions)
+[![GitHub Workflow Status](https://img.shields.io/github/actions/workflow/status/dmotte/vagrant-ansiblebox/release.yml?branch=main&logo=github&style=flat-square)](https://github.com/dmotte/vagrant-ansiblebox/actions)
 [![Vagrant Cloud](https://img.shields.io/badge/vagrant-dmotte/ansiblebox-blue?logo=vagrant&style=flat-square)](https://app.vagrantup.com/dmotte/boxes/ansiblebox)
 
 :package: **Debian Vagrant box** with **Ansible** and **Ansible Lint** installed via _pip_ with _Python 3_.
