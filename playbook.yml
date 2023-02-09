@@ -23,9 +23,9 @@
         name:
           - git # needed by Ansible Lint
           - sshpass # Needed by Ansible for password-based SSH login
+          - python3-pip # Needed by the "ansible.builtin.pip" Ansible module
 
-    - name: Install Ansible and Ansible Lint with pip
-      ansible.builtin.include_role: { name: geerlingguy.pip }
-      vars:
-        ansible_become: true
-        pip_install_packages: [ansible, ansible-lint]
+    - name: Install Ansible and Ansible Lint with pip as unprivileged user
+      ansible.builtin.pip:
+        extra_args: --user
+        name: [ansible, ansible-lint]
