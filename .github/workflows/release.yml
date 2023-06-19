@@ -62,7 +62,7 @@ jobs:
       - name: Publish the box to Vagrant Cloud
         run: >
           vagrant cloud publish
-          -s "Debian Vagrant box with Ansible and Ansible Lint installed via pip with Python 3 (github.com/dmotte/vagrant-ansiblebox)"
+          -s "Debian Vagrant box with Ansible and Ansible Lint (github.com/dmotte/vagrant-ansiblebox)"
           --version-description "This version has been released automatically with GitHub Actions, commit ${{ github.sha }}"
           --no-private --release --force
           dmotte/ansiblebox "$(date +%Y.%m.%d.%H%M)" virtualbox package.box
