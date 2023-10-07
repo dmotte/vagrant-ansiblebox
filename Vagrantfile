@@ -6,11 +6,11 @@ Vagrant.configure("2") do |config|
 
     config.vm.hostname = "ansiblebox"
 
-    config.vm.provision "ansible" do |ansible|
-        # ansible.galaxy_role_file = "requirements.yml"
-        ansible.playbook = "playbook.yml"
-        ansible.extra_vars = { ansible_python_interpreter: "/usr/bin/python3" }
-    end
+    config.vm.provision "shell", inline: <<-SHELL
+        # git is needed by Ansible Lint
+        # sshpass is needed by Ansible for password-based SSH login
+        apt-get update && apt-get install -y git sshpass ansible ansible-lint
+    SHELL
 
     config.ssh.insert_key = false # This is usually recommended for base boxes
 end
