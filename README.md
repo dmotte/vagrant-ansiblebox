@@ -24,7 +24,7 @@ Then you'll need to add some directives to the `~/.ssh/config` file inside the V
 
 ```ruby
 config.vm.provision "shell", privileged: false, inline: <<-SHELL
-    touch ~/.ssh/config && chmod 600 ~/.ssh/config
+    touch ~/.ssh/config; chmod 600 ~/.ssh/config
     echo "UserKnownHostsFile ~/.ssh-host/known_hosts" >> ~/.ssh/config
     echo -e "Host *\n    IdentityFile ~/.ssh-host/id_ed25519" >> ~/.ssh/config
 SHELL
@@ -34,6 +34,6 @@ If you want to install additional packages:
 
 ```ruby
 config.vm.provision "shell", inline: <<-SHELL
-    apt-get update && apt-get install -y rsync
+    apt-get update; apt-get install -y rsync
 SHELL
 ```
