@@ -11,7 +11,7 @@ Since Ansible cannot run natively on a _Windows_ host, this Vagrant box can be u
 
 ## Usage
 
-To use this Vagrant box you can take inspiration from [the `test` folder of dmotte/vagrant-dockerbox](https://github.com/dmotte/vagrant-dockerbox/tree/main/test).
+See https://github.com/dmotte/misc/blob/main/examples/vagrant-ansible-provisioner for inspiration on how you could use this box.
 
 If you want your host **SSH identity keys** and **known_hosts** to be available inside the VM, you can mount the host's `~/.ssh` directory like this:
 
