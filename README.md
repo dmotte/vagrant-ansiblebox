@@ -24,7 +24,7 @@ Then you'll need to add some directives to the `~/.ssh/config` file inside the V
 
 ```ruby
 config.vm.provision "shell", privileged: false, inline: <<-SHELL
-    touch ~/.ssh/config; chmod 600 ~/.ssh/config
+    touch ~/.ssh/config; chmod -v 600 ~/.ssh/config
     echo "UserKnownHostsFile ~/.ssh-host/known_hosts" >> ~/.ssh/config
     echo -e "Host *\n    IdentityFile ~/.ssh-host/id_ed25519" >> ~/.ssh/config
 SHELL
